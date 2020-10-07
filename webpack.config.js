@@ -23,12 +23,7 @@ module.exports = {
                     use: ['babel-loader'],
                     exclude: '/node_modules/'
                 }
-            // {
-            //     test: /\.(scss|sass)$/,
-            //     use: ExtractTextPlugin.extract({
-            //         use: ['css-loader', 'sass-loader']  
-            //     })
-            // }
+            
         ]
     }
 }
