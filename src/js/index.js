@@ -15,6 +15,7 @@ if(query){
     //2.get new search obj and add to state
     state.Search = new Search(query);//store this created object in state
     //3.prepare the ui for result
+    searchView.clearResult();
 
     //4.search for recipes
     await state.Search.getData();

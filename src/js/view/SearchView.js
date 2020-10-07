@@ -1,5 +1,14 @@
 import {elements} from './base';
 
+//clear the input field
+export const clearResult = () =>{
+    elements.searchInput.value = '';
+}
+
+//clear the recipes list ui
+export const clearResultList = () =>{
+    elements.searchInputUIt.inner = '';
+}
 //reading data from user input
 export const searchVal = () => elements.searchInput.value; 
 
@@ -7,12 +16,12 @@ export const searchVal = () => elements.searchInput.value;
 const resultGet = recipe =>{
 const markUp = `
 <li>
-                    <a class="results__link results__link--active" href="${recipe.recipe_id}">
+        <a class="results__link results__link--active" href="${recipe.recipe_id}">
                         <figure class="results__fig">
                             <img src="${recipe.image_url}" alt="${recipe.title}">
                         </figure>
                         <div class="results__data">
-                            <h4 class="results__name">Pasta with Tomato ...</h4>
+                            <h4 class="results__name">${recipe.title}</h4>
                             <p class="results__author">${recipe.publisher}</p>
                         </div>
                     </a>
