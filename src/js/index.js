@@ -1,4 +1,7 @@
 import Search from './model/Search';
+import * as searchView from './view/SearchView';
+import { elements } from './view/base';
+
 // const val = new Search('pizza');//new object with search query property
 
 //create a gloal state for storing our objects
@@ -7,7 +10,7 @@ const state = {
 }
 const controlSearch = async() =>{
     //1.get a query from view
-    const query = 'pizza';//leter will be user input query
+    const query = searchView.searchVal();//leter will be user input query
 if(query){
     //2.get new search obj and add to state
     state.Search = new Search(query);//store this created object in state
@@ -24,7 +27,7 @@ if(query){
 }
 
 //App startup 
-document.querySelector('.search').addEventListener('submit',e =>{
+elements.searchForm.addEventListener('submit',e =>{
 e.preventDefault();//prevent loading
 //function for todo-list
 controlSearch();
