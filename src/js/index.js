@@ -10,7 +10,7 @@ const state = {
 }
 const controlSearch = async() =>{
     //1.get a query from view
-    const query = searchView.searchVal();//leter will be user input query
+    const query = searchView.searchVal();
 if(query){
     //2.get new search obj and add to state
     state.Search = new Search(query);//store this created object in state
@@ -20,7 +20,8 @@ if(query){
     await state.Search.getData();
 
     //5.sarender on UI
-    console.log(state.Search.result);
+    // console.log(state.Search.result);
+    searchView.renderResults(state.Search.result);
 
 
 }
