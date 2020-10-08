@@ -1,6 +1,6 @@
 import Search from './model/Search';
 import * as searchView from './view/SearchView';
-import { elements } from './view/base';
+import { elements,reanderloader, clearLoader } from './view/base';
 
 // const val = new Search('pizza');//new object with search query property
 
@@ -18,12 +18,15 @@ if(query){
     searchView.clearResult();
     //clear all the list(recipes list)
     searchView.clearResultList();
+    reanderloader(elements.serchResContainer);
 
     //4.search for recipes
     await state.Search.getData();
 
     //5.sarender on UI
     // console.log(state.Search.result);
+    //remove the loader first
+    clearLoader();
     searchView.renderResults(state.Search.result);
 
 
