@@ -31,7 +31,7 @@ export const searchVal = () => elements.searchInput.value;
 const resultGet = recipe =>{
 const markUp = `
 <li>
-        <a class="results__link results__link--active" href="${recipe.recipe_id}">
+    <a class="results__link results__link--active" href="${recipe.recipe_id}">
                         <figure class="results__fig">
                             <img src="${recipe.image_url}" alt="${recipe.title}">
                         </figure>

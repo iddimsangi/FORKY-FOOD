@@ -3,10 +3,11 @@ searchForm: document.querySelector('.search'),
 searchInput: document.querySelector('.search__field'),
 searchInputUI: document.querySelector('.results__list'),
 serchResContainer:document.querySelector('.results')
-}
+};
+
 const elementString = {
     loader:'loader'
-}
+};
 
 export const reanderloader = parent =>{
     const loader =`
@@ -17,10 +18,10 @@ export const reanderloader = parent =>{
     </div>
     `;
     parent.insertAdjacentHTML('afterbegin', loader);
-}
+};
 
 export const clearLoader = () =>{
     const ld = document.querySelector(`.${elementString.loader}`)
 if(ld) ld.parentNode.removeChild(ld);
 
-}
+};
