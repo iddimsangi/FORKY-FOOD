@@ -23,5 +23,4 @@ export const reanderloader = parent =>{
 export const clearLoader = () =>{
     const ld = document.querySelector(`.${elementString.loader}`)
 if(ld) ld.parentNode.removeChild(ld);
-
 };
