@@ -44,8 +44,37 @@ const markUp = `
 `;
 elements.searchInputUI.insertAdjacentHTML('beforeend', markUp);
 }
+const button = (page, type) => `
+        <button class="btn-inline results__btn--${type}" data-ongo = ${type == 'next' ? page + 1 : page - 1}>
+                <svg class="search__icon">
+                    <use href="img/icons.svg#icon-triangle-${type == 'next' ? 'right' : 'left'}"></use>
+                </svg>
+                <span>Page ${type == 'next' ? page + 1 : page - 1}</span>
+        </button>
+`;
+
+//rendering a button for pagination
+const buttonRender = (page, numOfResults, resultPerPage) => {
+    let btn;
+    const pages = Math.ceil(numOfResults/resultPerPage);
+    if(page === 1 && pages > 1){
+        //Add button NEXT
+        btn = button(page, 'next');
+    }else if(page < pages){
+        //Add both button NEXT and PREV
+       btn = `${button(page, 'next')}
+              ${button(page, 'next')}
+              `  
+    }else if(page === pages){
+        button(page, 'prev');
+    }
+elements.resultButtonCont.insertAdjacentHTML('beforebegin', btn);
+}
 
 //public method that will be rendering these inputs(arr inputs)
-export const renderResults = recipes =>{
-    recipes.forEach(resultGet);
+export const renderResults = (recipes,page=2,resultPerPage=10) =>{
+    const start = (page - 1)*resultPerPage;
+    const end = page*resultPerPage;
+    recipes.slice(start, end).forEach(resultGet);
+    buttonRender(page, recipes.length, resultPerPage);
 };
